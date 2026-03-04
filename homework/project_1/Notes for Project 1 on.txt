@@ -1,0 +1,28 @@
+Notes for Project 1 on changes made to improve model performance
+
+Baseline — 256→512→256→128→1, 100 epochs, lr=1e-3: 0.7807
+More epochs — same architecture, 200 epochs: 0.7734
+Lower learning rate — lr=1e-4, 120 epochs: 0.8237 (worse, just needs more epochs)
+Extra layer — added second 512 layer, 200 epochs, lr=1e-3: 0.7751
+
+Best so far is 0.7734 with the original architecture and 200 epochs.
+
+The added layer had minimal effect and there is a bottleneck around 0.7751 suggesting that the issue is feature representation. 
+
+
+how would i change the feature representation9:04 PMA few ideas in order of difficulty:
+Easy:
+
+Add column norms of P as features — np.linalg.norm(P, axis=0) gives you the magnitude of each column which might be informative
+Add row norms — np.linalg.norm(P, axis=1)
+Add the max and min of each column
+
+Medium:
+
+Sort the columns of P by their norm before flattening — gives the network a more consistent structure to learn from instead of random column ordering
+
+Harder:
+
+Include pairwise ratios between columns since the m-height is fundamentally about ratios
+
+The easy ones are worth trying first — just add those extra values to your feature vector in encode_sample and update the input size in nn.Linear.

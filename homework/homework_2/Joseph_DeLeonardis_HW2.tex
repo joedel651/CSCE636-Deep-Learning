@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+
+\begin{document}
+% Header with left date and right name/UIN
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+    \raggedright
+    Feb 8, 2026
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
+    \raggedleft
+    Joseph DeLeonardis\\
+    UIN: 0820000866
+\end{minipage}
+\vspace{0.5cm}
+% Centered title below
+\begin{center}
+    \textbf{\Large CSCE-636-700}\\
+    Deep Learning Homework \#2
+\end{center}
+\vspace{1cm}
+
+\section*{Problem 1: Gradient Tape}
+
+\subsection*{Code}
+\begin{verbatim}
+for x_val in [0.0, 0.1, 0.2, 0.3]:
+    input_var = tf.Variable(initial_value=x_val)
+    with tf.GradientTape() as tape:
+        result = tf.sin(input_var)
+    gradient = tape.gradient(result, input_var)
+    print(f"f'({x_val}) = {gradient.numpy()}")
+\end{verbatim}
+
+\subsection*{Results}
+\begin{verbatim}
+f'(0.0) = 1.0
+f'(0.1) = 0.9950041770935059
+f'(0.2) = 0.9800665974617004
+f'(0.3) = 0.9553365111351013
+\end{verbatim}
+
+\subsection*{Discussion}
+GradientTape is used to calculate derivatives automatically. This is very useful for operations such as backpropagation in neural network training.
+
+\section*{Problem 2: IMDB Binary Classification Hyperparameter Tuning}
+
+\subsection*{Discussion}
+
+I experimented with three approaches: lowering the learning rate (88.46\%), increasing network size to 64-64 neurons (89.05\%), and adding dropout regularization (89.06\% peak, but degraded to 88\%). The larger network without regularization achieved the best and most stable performance at 89.05\%, demonstrating that the baseline model was underfitting and needed more capacity. Dropout did not improve results as the larger model was not significantly overfitting. These approaches were chosen because we discussed them in the lectures and I wanted to see how they worked on an actual problem. 
+
+\section*{Problem 3: Regularization Techniques}
+
+\begin{enumerate}
+    \item \textbf{Reducing the network's size} -- Decreasing the number of parameters by using fewer or smaller layers to prevent overfitting. The notebook compared models with 4, 16, and 512 neurons per layer.
+    
+    \item \textbf{L2 regularization (weight decay)} -- Adds a penalty proportional to the square of weight magnitudes to the loss function.
+    
+    \item \textbf{Dropout} -- Randomly drops a fraction of layer connections during training to prevent co-adaptation of features.
+\end{enumerate}
+  
+In the reading and in the lecture, other types of regularization such as L1 were discussed but were not fully implemented in the Chapter 5 notebook code.
+
+\section*{Problem 4: Generating Numbers}
+
+Attached in the .ipynb file for Chapter 5, I loaded the MNIST dataset and created a new mixed dataset as specified in Problem 4. I extracted all images of the first and second digit for each pair (0+1, 2+3, 4+5, 6+7, 8+9), shuffled them to randomize pairings, and averaged the pixel values to create blended images. Each blended pair was assigned a new label (0-4), then all batches were concatenated into the final dataset. I verified the correct shape and size ($\sim$30,000 training images, $\sim$5,000 test images) and displayed 2 random sample images per label.
+
+\section*{Problem 5: Neural Network Hyper Parameter Tuning}
+
+Attached in the .ipynb file for Chapter 5, I achieved strong initial results using L2 regularization of 0.001, a standard value I successfully applied in CSCE 633 Machine Learning. The model demonstrated balanced performance with no signs of underfitting or overfitting. At the 20th epoch, the model achieved: accuracy: 0.9803, loss: 0.1255, val\_accuracy: 0.9809, val\_loss: 0.1251.
+
+To validate the effectiveness of regularization, I ran the model without L2 regularization and observed slight overfitting, with training accuracy continuing to increase while validation accuracy plateaued. I also experimented with a smaller architecture (64 and 16 neurons) which resulted in slightly higher loss and lower accuracy, demonstrating underfitting due to insufficient model capacity.
+
+This exercise illustrated how hyperparameter choices---including regularization strength and network architecture---directly impact model performance and generalization. All the figures are included in the code for further analysis.
+
+\end{document}
