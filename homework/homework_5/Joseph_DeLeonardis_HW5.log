@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.1)  3 MAR 2026 23:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.1)  5 MAR 2026 01:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -391,8 +391,13 @@ Package hyperref Info: Link coloring OFF on input line 9.
 
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Joseph_DeLeonardis_HW5.
-aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.54 \end{document}
+                   ] (./Joseph_DeLeonardis_HW5.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -402,20 +407,20 @@ Package rerunfilecheck Info: File `Joseph_DeLeonardis_HW5.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 9600 strings out of 474222
- 147196 string characters out of 5748734
- 1929975 words of memory out of 5000000
- 31758 multiletter control sequences out of 15000+600000
- 559887 words of font info for 42 fonts, out of 8000000 for 9000
+ 9627 strings out of 474222
+ 147551 string characters out of 5748734
+ 1935975 words of memory out of 5000000
+ 31776 multiletter control sequences out of 15000+600000
+ 563000 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,5n,79p,662b,437s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,662b,439s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on Joseph_DeLeonardis_HW5.pdf (1 page, 51836 bytes).
+Output written on Joseph_DeLeonardis_HW5.pdf (1 page, 55569 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
- 25 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
+ 36 PDF objects out of 1000 (max. 8388607)
+ 26 compressed objects within 1 object stream
+ 8 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
