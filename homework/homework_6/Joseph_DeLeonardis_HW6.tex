@@ -1,0 +1,36 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{float}
+
+\begin{document}
+
+\noindent
+\textbf{March 27, 2026} \hfill \textbf{Joseph DeLeonardis} \\
+\textbf{UIN: 0820000866} \\
+\textbf{CSCE-636-700} \\
+\textbf{Deep Learning Homework \#6}
+
+\section*{Chapter 15: Language Models and the Transformer}
+
+\subsection*{Problem 1: Shakespeare Language Model}
+To satisfy the requirements of Problem 1, the prompt variable was changed to "Oh, what is our mission in the age of AI!" in order to observe how the model would predict the next text given the Shakespearean style it was trained on. Notes on how the architecture accomplished this are included in the Architecture Overview subsection below. This exercise was intended to familiarize ourselves with the model and only required a single line of code to be changed.
+
+
+
+
+
+\subsection*{Problem 2: Spanish-to-English Translation}
+
+
+
+\subsection*{Model Architecture Overview}
+The model architecture consisted of an Embedding layer, a GRU layer, and a Dense output layer. The Embedding layer converted each character token into a dense vector representation, the GRU layer maintained a hidden state that captured sequential context across characters, and the Dense layer produced a probability distribution over the vocabulary at each step. During generation, the prompt was fed character by character to build up the hidden state, after which the model repeatedly sampled the most probable next character and fed it back in as input, producing a continuation that reflected the learned patterns of the desired writing. This will be similar for both problems. 
+
+
+
+
+\end{document}
